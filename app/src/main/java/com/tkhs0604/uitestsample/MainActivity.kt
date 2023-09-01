@@ -1,7 +1,5 @@
 package com.tkhs0604.uitestsample
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,6 +11,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.tkhs0604.uitestsample.extension.launchActivity
 import com.tkhs0604.uitestsample.ui.theme.UiTestSampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,12 +28,16 @@ class MainActivity : ComponentActivity() {
                     composable("main") {
                         MainScreen(
                             onClickGoToComposeActivity = {
-                                context.launchActivity<ComposeActivity>()
+                                navController.navigate("compose")
+//                                context.launchActivity<ComposeActivity>()
                             },
                             onClickGoToAndroidViewActivity = {
                                 context.launchActivity<AndroidViewActivity>()
                             }
                         )
+                    }
+                    composable("compose") {
+                        ComposeScreen()
                     }
                 }
             }
@@ -56,12 +59,3 @@ fun MainScreen(
         }
     }
 }
-
-private inline fun <reified T : ComponentActivity> Context.launchActivity() {
-    startActivity(createIntent<T>())
-}
-
-private inline fun <reified T : ComponentActivity> Context.createIntent(): Intent {
-    return Intent(this, T::class.java)
-}
-
