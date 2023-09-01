@@ -1,5 +1,6 @@
 package com.tkhs0604.uitestsample
 
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -25,13 +26,13 @@ class ComposeActivityTest {
     @Test
     fun counterTest() {
         // Given: assert initial count
-        composeTestRule.onNodeWithText("count: 0").assertExists()
+        composeTestRule.onNodeWithText("count: 0").assertIsDisplayed()
 
         // When: click count up button
         composeTestRule.onNodeWithText("count up").performClick()
 
         // Then: assert that count is incremented
-        composeTestRule.onNodeWithText("count: 1").assertExists()
+        composeTestRule.onNodeWithText("count: 1").assertIsDisplayed()
     }
 
     @Test
@@ -49,10 +50,10 @@ class ComposeActivityTest {
     fun navigationTestByUsingPageObject() {
         ComposePage
             // Given: assert initial screen
-            .assertScreen()
+            .assertScreenName()
             // When: click navigation button to next screen
             .clickNavigationButton()
             // Given: assert next screen
-            .assertScreen()
+            .assertScreenNameLabel()
     }
 }

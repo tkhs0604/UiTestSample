@@ -25,7 +25,7 @@ object AndroidViewPage {
     // endregion
 
     // region asserts
-    fun assertScreen() = apply {
+    fun assertScreenNameLabel() = apply {
         screenNameLabel.check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 

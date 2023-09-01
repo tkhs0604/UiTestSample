@@ -1,5 +1,6 @@
 package com.tkhs0604.uitestsample.page
 
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.onNodeWithText
@@ -36,8 +37,8 @@ object ComposePage {
     // endregion
 
     // region assertions
-    fun assertScreen() = apply {
-        screenNameLabel.assertExists()
+    fun assertScreenName() = apply {
+        screenNameLabel.assertIsDisplayed()
     }
 
     fun assertCounterLabel(expected: Int) = apply {
