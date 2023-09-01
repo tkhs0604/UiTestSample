@@ -13,7 +13,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class AndroidViewActivityInstrumentedTest {
+class AndroidViewActivityTest {
 
     @get:Rule
     val activityScenarioRule = ActivityScenarioRule(AndroidViewActivity::class.java)
@@ -24,7 +24,7 @@ class AndroidViewActivityInstrumentedTest {
         Espresso.onView(ViewMatchers.withId(R.id.counter_label))
             .check(ViewAssertions.matches(ViewMatchers.withText("count: 0")))
 
-        // When: click button
+        // When: click count up button
         Espresso.onView(ViewMatchers.withId(R.id.count_up_button))
             .perform(ViewActions.click())
 
@@ -34,11 +34,11 @@ class AndroidViewActivityInstrumentedTest {
     }
 
     @Test
-    fun counterTestUsingPageObject() {
+    fun counterTestByUsingPageObject() {
         AndroidViewPage
             // Given: assert initial count
             .assertCounterLabel(0)
-            // When: click button
+            // When: click count up button
             .clickCountUpButton()
             // Then: assert that count is incremented
             .assertCounterLabel(1)
