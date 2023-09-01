@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     >
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/screen_name_label"
+        style="@style/TextAppearance.Material3.BodyLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AndroidViewActivity"
@@ -15,8 +16,9 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/counter_label"
+        style="@style/TextAppearance.Material3.BodyLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -28,7 +30,7 @@
         tools:text="counter: 0"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/count_up_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
