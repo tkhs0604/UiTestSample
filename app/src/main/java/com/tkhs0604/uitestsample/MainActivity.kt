@@ -3,10 +3,16 @@ package com.tkhs0604.uitestsample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,25 +25,32 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             UiTestSampleTheme {
-                val navController = rememberNavController()
-                val context = LocalContext.current
-                NavHost(
-                    navController = navController,
-                    startDestination = "main",
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background,
                 ) {
-                    composable("main") {
-                        MainScreen(
-                            onClickGoToComposeActivity = {
-                                navController.navigate("compose")
+                    val navController = rememberNavController()
+                    val context = LocalContext.current
+                    NavHost(
+                        navController = navController,
+                        startDestination = "main",
+                        enterTransition = { EnterTransition.None },
+                        exitTransition = { ExitTransition.None },
+                    ) {
+                        composable("main") {
+                            MainScreen(
+                                onClickGoToComposeActivity = {
+                                    navController.navigate("compose")
 //                                context.launchActivity<ComposeActivity>()
-                            },
-                            onClickGoToAndroidViewActivity = {
-                                context.launchActivity<AndroidViewActivity>()
-                            }
-                        )
-                    }
-                    composable("compose") {
-                        ComposeScreen()
+                                },
+                                onClickGoToAndroidViewActivity = {
+                                    context.launchActivity<AndroidViewActivity>()
+                                }
+                            )
+                        }
+                        composable("compose") {
+                            ComposeScreen()
+                        }
                     }
                 }
             }
