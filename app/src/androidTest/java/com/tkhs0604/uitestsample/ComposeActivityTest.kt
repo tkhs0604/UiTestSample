@@ -1,7 +1,9 @@
 package com.tkhs0604.uitestsample
 
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -24,15 +26,27 @@ class ComposeActivityTest {
     }
 
     @Test
-    fun counterTest() {
+    fun counterTest() = with(composeTestRule) {
         // Given: assert initial count
-        composeTestRule.onNodeWithText("count: 0").assertIsDisplayed()
+        onNodeWithText("count: 0").assertIsDisplayed()
 
         // When: click count up button
-        composeTestRule.onNodeWithText("count up").performClick()
+        onNodeWithText("count up").performClick()
 
         // Then: assert that count is incremented
-        composeTestRule.onNodeWithText("count: 1").assertIsDisplayed()
+        onNodeWithText("count: 1").assertIsDisplayed()
+    }
+
+    @Test
+    fun counterTestWithTestTag() = with(composeTestRule) {
+        // Given: assert initial count
+        onNodeWithTag(ComposeScreenTestTags.COUNTER_LABEL).assertTextEquals("count: 0")
+
+        // When: click count up button
+        onNodeWithTag(ComposeScreenTestTags.COUNT_UP_BUTTON).performClick()
+
+        // Then: assert that count is incremented
+        onNodeWithTag(ComposeScreenTestTags.COUNTER_LABEL).assertTextEquals("count: 1")
     }
 
     @Test
