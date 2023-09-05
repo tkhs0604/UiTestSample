@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,7 +24,11 @@ import com.tkhs0604.uitestsample.extension.launchActivity
 @Composable
 fun ComposeScreen() {
     var counter by rememberSaveable { mutableIntStateOf(0) }
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
         Text(text = "ComposeActivity", modifier = Modifier.align(Alignment.TopStart))
         Column(
             modifier = Modifier.align(Alignment.Center),
