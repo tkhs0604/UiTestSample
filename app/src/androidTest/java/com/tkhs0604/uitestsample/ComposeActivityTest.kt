@@ -2,6 +2,7 @@ package com.tkhs0604.uitestsample
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals
+import androidx.compose.ui.test.junit4.ComposeTestRule
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -26,7 +27,7 @@ class ComposeActivityTest {
     }
 
     @Test
-    fun counterTest() = with(composeTestRule) {
+    fun counterTest() = composeTestRule.execute {
         // Given: assert initial count
         onNodeWithText("count: 0").assertIsDisplayed()
 
@@ -38,7 +39,7 @@ class ComposeActivityTest {
     }
 
     @Test
-    fun counterTestWithTestTag() = with(composeTestRule) {
+    fun counterTestWithTestTag() = composeTestRule.execute {
         // Given: assert initial count
         onNodeWithTag(ComposeScreenTestTags.COUNTER_LABEL).assertTextEquals("count: 0")
 
@@ -69,5 +70,9 @@ class ComposeActivityTest {
             .clickNavigationButton()
             // Given: assert next screen
             .assertScreenNameLabel()
+    }
+
+    private fun ComposeTestRule.execute(block: ComposeTestRule.() -> Unit) {
+        block(this)
     }
 }
