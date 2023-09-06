@@ -29,7 +29,7 @@ fun ComposeScreen() {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        Text(text = "ComposeActivity", modifier = Modifier.align(Alignment.TopStart))
+        Text("ComposeActivity", modifier = Modifier.align(Alignment.TopStart))
         Column(
             modifier = Modifier.align(Alignment.Center),
             verticalArrangement = Arrangement.Center,
@@ -51,7 +51,7 @@ fun ComposeScreen() {
                 context.launchActivity<AndroidViewActivity>()
             }
         ) {
-            Text(text = "Go to AndroidViewActivity")
+            Text("Go to AndroidViewActivity")
         }
     }
 }

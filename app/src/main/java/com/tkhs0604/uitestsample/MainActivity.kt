@@ -65,10 +65,10 @@ fun MainScreen(
 ) {
     Column {
         Button(onClick = onClickGoToComposeActivity) {
-            Text(text = "Go to ComposeActivity")
+            Text("Go to ComposeActivity")
         }
         Button(onClick = onClickGoToAndroidViewActivity) {
-            Text(text = "Go to AndroidViewActivity")
+            Text("Go to AndroidViewActivity")
         }
     }
 }
