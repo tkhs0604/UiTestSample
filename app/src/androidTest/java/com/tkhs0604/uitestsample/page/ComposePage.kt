@@ -8,7 +8,7 @@ import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.tkhs0604.uitestsample.ComposeActivity
 
-object ComposePage : MigratingPage {
+object ComposePage : TransitionTargetPage {
 
     lateinit var composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<ComposeActivity>, ComposeActivity>
 

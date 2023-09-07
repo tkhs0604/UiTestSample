@@ -6,7 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import com.tkhs0604.uitestsample.R
 
-object AndroidViewPage : MigratingPage {
+object AndroidViewPage : TransitionTargetPage {
     // region components
     private val counterLabel
         get() = Espresso.onView(ViewMatchers.withId(R.id.counter_label))

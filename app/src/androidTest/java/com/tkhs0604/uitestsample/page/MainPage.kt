@@ -16,7 +16,7 @@ object MainPage {
     // endregion
 
     // region actions
-    fun clickButton(isComposeScreen: Boolean) = MigratingPage.get(isComposeScreen).apply {
+    fun clickButton(isComposeScreen: Boolean) = TransitionTargetPage.get(isComposeScreen).apply {
         button.performClick()
     }
     // endregion
