@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,22 +23,30 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ComposeScreen() {
-    var counter by rememberSaveable { mutableIntStateOf(0) }
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background,
     ) {
-        Text("ComposeActivity", modifier = Modifier.align(Alignment.TopStart))
-        Column(
-            modifier = Modifier.align(Alignment.Center),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
+        var counter by rememberSaveable { mutableIntStateOf(0) }
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
         ) {
-            Text("count: $counter", modifier = Modifier.testTag(ComposeScreenTestTags.COUNTER_LABEL))
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = { counter++ }, modifier = Modifier.testTag(ComposeScreenTestTags.COUNT_UP_BUTTON)) {
-                Text("count up")
+            Text("ComposeActivity", modifier = Modifier.align(Alignment.TopStart))
+            Column(
+                modifier = Modifier.align(Alignment.Center),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text("count: $counter", modifier = Modifier.testTag(ComposeScreenTestTags.COUNTER_LABEL))
+                Spacer(modifier = Modifier.height(16.dp))
+                Button(
+                    onClick = { counter++ },
+                    modifier = Modifier.testTag(ComposeScreenTestTags.COUNT_UP_BUTTON)
+                ) {
+                    Text("count up")
+                }
             }
         }
     }
