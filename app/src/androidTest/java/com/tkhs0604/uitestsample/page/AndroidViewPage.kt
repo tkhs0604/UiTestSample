@@ -19,17 +19,17 @@ object AndroidViewPage : MigratingPage {
     // endregion
 
     // region actions
-    override fun clickCountUpButton() = apply {
+    override fun clickCountUpButton() = this.apply {
         countUpButton.perform(ViewActions.click())
     }
     // endregion
 
     // region asserts
-    override fun assertScreenName() = apply {
+    override fun assertScreenName() = this.apply {
         screenNameLabel.check(ViewAssertions.matches(ViewMatchers.withText("AndroidViewActivity")))
     }
 
-    override fun assertCounterLabel(expected: Int) = apply {
+    override fun assertCounterLabel(expected: Int) = this.apply {
         counterLabel.check(ViewAssertions.matches(ViewMatchers.withText("count: $expected")))
     }
     // endregion
