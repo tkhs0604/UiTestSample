@@ -9,6 +9,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.tkhs0604.uitestsample.featureflag.FeatureFlagProvider
+import com.tkhs0604.uitestsample.page.MainPage
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Assert.*
@@ -33,6 +34,7 @@ class MainActivityTest {
 
     @Before
     fun setUp() {
+        MainPage.composeTestRule = composeTestRule
         hiltRule.inject()
     }
 
@@ -46,5 +48,12 @@ class MainActivityTest {
             Espresso.onView(ViewMatchers.withText("AndroidViewActivity"))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         }
+    }
+
+    @Test
+    fun navigationTestByUsingPageObject() {
+        MainPage
+            .clickButton(featureFlagProvider.shouldUseComposeScreen())
+            .assertScreenName()
     }
 }

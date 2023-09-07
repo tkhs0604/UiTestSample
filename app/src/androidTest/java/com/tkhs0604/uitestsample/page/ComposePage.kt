@@ -8,7 +8,7 @@ import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.tkhs0604.uitestsample.ComposeActivity
 
-object ComposePage {
+object ComposePage : MigratingPage {
 
     lateinit var composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<ComposeActivity>, ComposeActivity>
 
@@ -24,18 +24,18 @@ object ComposePage {
     // endregion
 
     // region actions
-    fun clickCountUpButton() = apply {
+    override fun clickCountUpButton() = apply {
         countUpButton.performClick()
     }
 
     // endregion
 
     // region assertions
-    fun assertScreenName() = apply {
+    override fun assertScreenName() = apply {
         screenNameLabel.assertIsDisplayed()
     }
 
-    fun assertCounterLabel(expected: Int) = apply {
+    override fun assertCounterLabel(expected: Int) = apply {
         counterLabel.assertTextEquals("count: $expected")
     }
     // endregion
