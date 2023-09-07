@@ -26,7 +26,7 @@ object AndroidViewPage : MigratingPage {
 
     // region asserts
     override fun assertScreenName() = apply {
-        screenNameLabel.check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        screenNameLabel.check(ViewAssertions.matches(ViewMatchers.withText("AndroidViewActivity")))
     }
 
     override fun assertCounterLabel(expected: Int) = apply {
