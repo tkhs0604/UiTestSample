@@ -1,5 +1,6 @@
 package com.tkhs0604.uitestsample.di
 
+import com.tkhs0604.uitestsample.FakeFeatureFlagResolver
 import com.tkhs0604.uitestsample.FeatureFlagProvider
 import dagger.Binds
 import dagger.Module

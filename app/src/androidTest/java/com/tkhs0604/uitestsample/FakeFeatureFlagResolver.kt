@@ -1,6 +1,5 @@
-package com.tkhs0604.uitestsample.di
+package com.tkhs0604.uitestsample
 
-import com.tkhs0604.uitestsample.FeatureFlagProvider
 import javax.inject.Inject
 
 class FakeFeatureFlagResolver @Inject constructor(): FeatureFlagProvider {
