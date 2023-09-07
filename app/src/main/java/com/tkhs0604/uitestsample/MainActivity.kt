@@ -47,8 +47,11 @@ class MainActivity : ComponentActivity() {
                         composable("main") {
                             MainScreen(
                                 onClickGoToComposeActivity = {
-                                    navController.navigate("compose")
-//                                context.launchActivity<ComposeActivity>()
+                                    if (featureFlagProvider.shouldUseComposeScreen()) {
+                                        navController.navigate("compose")
+                                    } else {
+                                        context.launchActivity<AndroidViewActivity>()
+                                    }
                                 },
                                 onClickGoToAndroidViewActivity = {
                                     context.launchActivity<AndroidViewActivity>()
