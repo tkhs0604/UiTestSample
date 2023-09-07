@@ -1,4 +1,4 @@
-package com.tkhs0604.uitestsample
+package com.tkhs0604.uitestsample.featureflag
 
 import javax.inject.Inject
 

@@ -1,5 +1,7 @@
 package com.tkhs0604.uitestsample
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,7 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.tkhs0604.uitestsample.extension.launchActivity
+import com.tkhs0604.uitestsample.featureflag.FeatureFlagProvider
 import com.tkhs0604.uitestsample.ui.theme.UiTestSampleTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -36,12 +38,12 @@ class MainActivity : ComponentActivity() {
                         Button(
                             modifier = Modifier.align(Alignment.Center),
                             onClick = {
-                            if (featureFlagProvider.shouldUseComposeScreen()) {
-                                context.launchActivity<ComposeActivity>()
-                            } else {
-                                context.launchActivity<AndroidViewActivity>()
+                                if (featureFlagProvider.shouldUseComposeScreen()) {
+                                    context.launchActivity<ComposeActivity>()
+                                } else {
+                                    context.launchActivity<AndroidViewActivity>()
+                                }
                             }
-                        }
                         ) {
                             Text("Go to next activity")
                         }
@@ -49,5 +51,9 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    private inline fun <reified T : ComponentActivity> Context.launchActivity() {
+        startActivity(Intent(this, T::class.java))
     }
 }

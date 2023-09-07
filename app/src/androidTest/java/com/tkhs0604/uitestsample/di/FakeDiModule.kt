@@ -1,7 +1,7 @@
 package com.tkhs0604.uitestsample.di
 
-import com.tkhs0604.uitestsample.FakeFeatureFlagResolver
-import com.tkhs0604.uitestsample.FeatureFlagProvider
+import com.tkhs0604.uitestsample.featureflag.FakeFeatureFlagResolver
+import com.tkhs0604.uitestsample.featureflag.FeatureFlagProvider
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.components.SingletonComponent
@@ -21,4 +21,3 @@ abstract class FakeDiModule {
         impl: FakeFeatureFlagResolver,
     ): FeatureFlagProvider
 }
-

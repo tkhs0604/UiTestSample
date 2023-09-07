@@ -8,6 +8,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.tkhs0604.uitestsample.ComposeActivity.TestTags
 import com.tkhs0604.uitestsample.page.ComposePage
 import org.junit.Assert.*
 import org.junit.Before
@@ -41,13 +42,13 @@ class ComposeActivityTest {
     @Test
     fun counterTestWithTestTag() = composeTestRule.execute {
         // Given: assert initial count
-        onNodeWithTag(ComposeScreenTestTags.COUNTER_LABEL).assertTextEquals("count: 0")
+        onNodeWithTag(TestTags.COUNTER_LABEL).assertTextEquals("count: 0")
 
         // When: click count up button
-        onNodeWithTag(ComposeScreenTestTags.COUNT_UP_BUTTON).performClick()
+        onNodeWithTag(TestTags.COUNT_UP_BUTTON).performClick()
 
         // Then: assert that count is incremented
-        onNodeWithTag(ComposeScreenTestTags.COUNTER_LABEL).assertTextEquals("count: 1")
+        onNodeWithTag(TestTags.COUNTER_LABEL).assertTextEquals("count: 1")
     }
 
     @Test
