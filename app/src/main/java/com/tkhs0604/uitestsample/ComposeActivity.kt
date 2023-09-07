@@ -20,7 +20,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.tkhs0604.uitestsample.ui.theme.UiTestSampleTheme
 
@@ -45,11 +44,10 @@ class ComposeActivity : ComponentActivity() {
                             verticalArrangement = Arrangement.Center,
                             horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
-                            Text("count: $counter", modifier = Modifier.testTag(TestTags.COUNTER_LABEL))
+                            Text("count: $counter")
                             Spacer(modifier = Modifier.height(16.dp))
                             Button(
                                 onClick = { counter++ },
-                                modifier = Modifier.testTag(TestTags.COUNT_UP_BUTTON)
                             ) {
                                 Text("count up")
                             }
@@ -58,10 +56,5 @@ class ComposeActivity : ComponentActivity() {
                 }
             }
         }
-    }
-
-    object TestTags {
-        const val COUNTER_LABEL = "counter_label"
-        const val COUNT_UP_BUTTON = "count_up_button"
     }
 }
