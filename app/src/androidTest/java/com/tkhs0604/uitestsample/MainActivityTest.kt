@@ -37,7 +37,7 @@ class MainActivityTest {
 
     @Test
     fun navigationTest() {
-        composeTestRule.onNodeWithText("Go to ComposeActivity").performClick()
+        composeTestRule.onNodeWithText("Go to next activity").performClick()
 
         if (featureFlagProvider.shouldUseComposeScreen()) {
             composeTestRule.onNodeWithText("ComposeActivity").assertIsDisplayed()

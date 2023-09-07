@@ -61,17 +61,6 @@ class ComposeActivityTest {
             .assertCounterLabel(1)
     }
 
-    @Test
-    fun navigationTestByUsingPageObject() {
-        ComposePage
-            // Given: assert initial screen
-            .assertScreenName()
-            // When: click navigation button to next screen
-            .clickNavigationButton()
-            // Given: assert next screen
-            .assertScreenNameLabel()
-    }
-
     private fun ComposeTestRule.execute(block: ComposeTestRule.() -> Unit) {
         block(this)
     }

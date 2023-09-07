@@ -21,9 +21,6 @@ object ComposePage {
 
     private val countUpButton
         get() = composeTestRule.onNodeWithText("count up")
-
-    private val navigationButton
-        get() = composeTestRule.onNodeWithText("Go to AndroidViewActivity")
     // endregion
 
     // region actions
@@ -31,9 +28,6 @@ object ComposePage {
         countUpButton.performClick()
     }
 
-    fun clickNavigationButton() = AndroidViewPage.apply {
-        navigationButton.performClick()
-    }
     // endregion
 
     // region assertions

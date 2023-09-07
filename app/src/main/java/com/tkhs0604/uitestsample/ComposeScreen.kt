@@ -16,10 +16,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
-import com.tkhs0604.uitestsample.extension.launchActivity
 
 @Composable
 fun ComposeScreen() {
@@ -41,23 +39,10 @@ fun ComposeScreen() {
                 Text("count up")
             }
         }
-
-        val context = LocalContext.current
-        Button(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .testTag(ComposeScreenTestTags.NAVIGATION_BUTTON),
-            onClick = {
-                context.launchActivity<AndroidViewActivity>()
-            }
-        ) {
-            Text("Go to AndroidViewActivity")
-        }
     }
 }
 
 object ComposeScreenTestTags {
     const val COUNTER_LABEL = "counter_label"
     const val COUNT_UP_BUTTON = "count_up_button"
-    const val NAVIGATION_BUTTON = "navigation_button"
 }
