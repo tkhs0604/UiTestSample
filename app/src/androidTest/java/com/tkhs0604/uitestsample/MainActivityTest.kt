@@ -7,19 +7,15 @@ import androidx.compose.ui.test.performClick
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.tkhs0604.uitestsample.featureflag.FeatureFlagProvider
 import com.tkhs0604.uitestsample.page.MainPage
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import javax.inject.Inject
 
-@RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
 class MainActivityTest {
 
