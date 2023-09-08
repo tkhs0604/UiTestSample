@@ -9,7 +9,7 @@ import com.tkhs0604.uitestsample.page.AndroidViewPage
 import org.junit.Rule
 import org.junit.Test
 
-class AndroidViewActivityTest {
+class AndroidViewActivityInstrumentedTest {
 
     @get:Rule
     val activityScenarioRule = ActivityScenarioRule(AndroidViewActivity::class.java)

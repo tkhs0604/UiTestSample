@@ -10,7 +10,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-class ComposeActivityTest {
+class ComposeActivityInstrumentedTest {
 
     @get:Rule
     val composeTestRule = createAndroidComposeRule<ComposeActivity>()

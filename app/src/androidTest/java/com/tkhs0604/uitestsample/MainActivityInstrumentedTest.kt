@@ -17,7 +17,7 @@ import org.junit.Test
 import javax.inject.Inject
 
 @HiltAndroidTest
-class MainActivityTest {
+class MainActivityInstrumentedTest {
 
     @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
