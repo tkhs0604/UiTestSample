@@ -17,16 +17,16 @@ class AndroidViewActivityInstrumentedTest {
     @Test
     fun counterTest() {
         // Given: assert initial count
-        Espresso.onView(ViewMatchers.withText("count: 0"))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.counter_label))
+            .check(ViewAssertions.matches(ViewMatchers.withText("count: 0")))
 
         // When: click count up button
         Espresso.onView(ViewMatchers.withId(R.id.count_up_button))
             .perform(ViewActions.click())
 
         // Then: assert that count is incremented
-        Espresso.onView(ViewMatchers.withText("count: 1"))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.counter_label))
+            .check(ViewAssertions.matches(ViewMatchers.withText("count: 1")))
     }
 
     @Test
