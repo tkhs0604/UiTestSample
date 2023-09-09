@@ -19,17 +19,17 @@ object AndroidViewPage : TransitionTargetPage {
     // endregion
 
     // region actions
-    override fun clickCountUpButton(): TransitionTargetPage = this.apply {
+    override fun clickCountUpButton(): TransitionTargetPage = this.also {
         countUpButton.perform(ViewActions.click())
     }
     // endregion
 
     // region asserts
-    override fun assertScreenName(): TransitionTargetPage = this.apply {
+    override fun assertScreenName(): TransitionTargetPage = this.also {
         screenNameLabel.check(ViewAssertions.matches(ViewMatchers.withText("AndroidViewActivity")))
     }
 
-    override fun assertCounterLabel(expected: Int): TransitionTargetPage = this.apply {
+    override fun assertCounterLabel(expected: Int): TransitionTargetPage = this.also {
         counterLabel.check(ViewAssertions.matches(ViewMatchers.withText("count: $expected")))
     }
     // endregion

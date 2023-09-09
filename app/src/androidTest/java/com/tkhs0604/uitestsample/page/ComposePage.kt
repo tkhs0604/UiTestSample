@@ -24,18 +24,18 @@ object ComposePage : TransitionTargetPage {
     // endregion
 
     // region actions
-    override fun clickCountUpButton(): TransitionTargetPage = this.apply {
+    override fun clickCountUpButton(): TransitionTargetPage = this.also {
         countUpButton.performClick()
     }
 
     // endregion
 
     // region assertions
-    override fun assertScreenName(): TransitionTargetPage = this.apply {
+    override fun assertScreenName(): TransitionTargetPage = this.also {
         screenNameLabel.assertIsDisplayed()
     }
 
-    override fun assertCounterLabel(expected: Int): TransitionTargetPage = this.apply {
+    override fun assertCounterLabel(expected: Int): TransitionTargetPage = this.also {
         counterLabel.assertTextEquals("count: $expected")
     }
     // endregion
