@@ -1,5 +1,7 @@
 package com.tkhs0604.uitestsample
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -56,5 +58,9 @@ class ComposeActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        fun createIntent(context: Context): Intent = Intent(context, ComposeActivity::class.java)
     }
 }

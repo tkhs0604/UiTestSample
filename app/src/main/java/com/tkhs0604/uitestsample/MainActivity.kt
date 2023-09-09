@@ -1,7 +1,5 @@
 package com.tkhs0604.uitestsample
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,7 +11,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import com.tkhs0604.uitestsample.featureflag.FeatureFlagProvider
 import com.tkhs0604.uitestsample.ui.theme.UiTestSampleTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,14 +31,13 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background,
                 ) {
                     Box {
-                        val context = LocalContext.current
                         Button(
                             modifier = Modifier.align(Alignment.Center),
                             onClick = {
                                 if (featureFlagProvider.shouldUseComposeScreen()) {
-                                    context.launchActivity<ComposeActivity>()
+                                    startActivity(ComposeActivity.createIntent(this@MainActivity))
                                 } else {
-                                    context.launchActivity<AndroidViewActivity>()
+                                    startActivity(AndroidViewActivity.createIntent(this@MainActivity))
                                 }
                             }
                         ) {
@@ -51,9 +47,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-
-    private inline fun <reified T : ComponentActivity> Context.launchActivity() {
-        startActivity(Intent(this, T::class.java))
     }
 }

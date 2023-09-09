@@ -1,5 +1,7 @@
 package com.tkhs0604.uitestsample
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.tkhs0604.uitestsample.databinding.ActivityAndroidViewBinding
@@ -31,5 +33,9 @@ class AndroidViewActivity : ComponentActivity() {
         override fun toString(): String {
             return "count: $value"
         }
+    }
+
+    companion object {
+        fun createIntent(context: Context): Intent = Intent(context, AndroidViewActivity::class.java)
     }
 }
