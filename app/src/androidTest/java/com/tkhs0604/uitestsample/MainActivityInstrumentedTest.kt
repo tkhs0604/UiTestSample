@@ -31,7 +31,7 @@ class MainActivityInstrumentedTest {
     @Test
     fun navigationTest() {
         MainPage
-            .clickButton(featureFlagProvider.shouldUseComposeScreen())
+            .clickNavigationButton(featureFlagProvider.shouldUseComposeScreen())
             .assertScreenName()
     }
 }
